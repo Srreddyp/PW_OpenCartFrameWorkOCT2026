@@ -43,6 +43,8 @@ export class HomePage extends BasePage {
         console.log(`serachkey: ${serachkey}`);
         await this.searchBox.fill(serachkey);
         await this.searchIcon.click();
+        console.log('after clicking');
+        
 
     }
 
