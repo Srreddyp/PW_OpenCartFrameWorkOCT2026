@@ -1,29 +1,25 @@
 
 import { test, expect } from '../../src/fixtures/apifixteurs'
 
-const TOKEN = process.env.API_Token!;
+const TOKEN = process.env.API_TOKEN!;
 let AUTH_HEADER = { Authorization: `Bearer ${TOKEN}` };
+
 let userId: number;
 
+test.describe.serial('running e2e go rest crud api tests', () => {
 
-test.describe.serial('run the E2E test cases', () => {
-
-
-    //GET
-    test('GET API - get all users', async ({ apiHelper }) => {
+    //GET test:
+    test('@regression GET API -- get all users', async ({ apiHelper }) => {
         let response = await apiHelper.get('/public/v2/users', AUTH_HEADER);
-        expect(response.status).toBe(200)
+        expect(response.status).toBe(200);
+        expect(response.body.length).toBeGreaterThan(0);
+    });
 
 
-    })
-
-    //POST
-    test('POST API - get create users', async ({ apiHelper }) => {
-
-        //Js Object
+    test('@regression POST API -- create a user', async ({ apiHelper }) => {
         let userData = {
-            name: 'Automation',
-            email: `automation-${Date.now()}@example.com`,
+            name: 'Naveen API',
+            email: `automation_${Date.now()}@open.com`,
             gender: 'male',
             status: 'active'
         };
@@ -31,18 +27,14 @@ test.describe.serial('run the E2E test cases', () => {
         let response = await apiHelper.post('/public/v2/users', userData, AUTH_HEADER);
         expect(response.status).toBe(201);
         expect(response.body.name).toBe(userData.name);
-
         userId = response.body.id;
-        console.log('Created User ID', userId);
+        console.log('Created User Id: ', userId);
+    });
 
-    })
 
-    //Update
-    test('PUT API - Update the users', async ({ apiHelper }) => {
-
-        //Js Object
+    test('@regression PUT API -- Update a user', async ({ apiHelper }) => {
         let userUpdatedData = {
-            name: 'Automationone',
+            name: 'Naveen API Updated',
             status: 'inactive'
         };
 
@@ -50,16 +42,11 @@ test.describe.serial('run the E2E test cases', () => {
         expect(response.status).toBe(200);
         expect(response.body.name).toBe(userUpdatedData.name);
         expect(response.body.status).toBe(userUpdatedData.status);
+    });
 
-    })
-
-
-    //Delete
-    test('Delete API - Delete the users', async ({ apiHelper }) => {
-
+    test('@regression DELETE API -- Delete a user', async ({ apiHelper }) => {
         let response = await apiHelper.delete(`/public/v2/users/${userId}`, AUTH_HEADER);
         expect(response.status).toBe(204);
-
-    })
+    });
 
 });
