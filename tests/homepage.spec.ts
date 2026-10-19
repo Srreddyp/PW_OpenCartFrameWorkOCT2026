@@ -14,21 +14,21 @@ test.beforeEach(async ({ page }) => {
 
 
 //Remove the page
-test('navigate the homepage', async ({ }) => {
+test('home page title test', async ({ }) => {
     expect(await homepage.getPageTitle()).toBe('My Account');
 
 })
 
 
 //Remove the page
-test('Verify the logout link', async ({ }) => {
+test('smoke logout link exist test', async ({ }) => {
     expect(await homepage.isLogoutLinkExist()).toBeTruthy();
 
 })
 
 
 //Remove the page
-test('Headers verify the homepage', async ({ }) => {
+test('home page headers exist test', async ({ }) => {
 
     let headers = await homepage.getHomePageHeaders();
     expect(headers).toHaveLength(4);

@@ -6,7 +6,7 @@ test.beforeEach(async ({loginpage}) => {
     await loginpage.doLogin(process.env.APPUSERNAME!, process.env.APPPASSWORD!);
 });
 
-test('verify the product image count', async({homepage,searchResultPage,productInfoPage})=>{
+test('@regression verify product images count', async({homepage,searchResultPage,productInfoPage})=>{
     await homepage.doSerach('macbook');
     await searchResultPage.selectProduct('MacBook Pro');
     let imgCount =  await productInfoPage.getProductImagesCount();
@@ -15,7 +15,7 @@ test('verify the product image count', async({homepage,searchResultPage,productI
 })
 
 
-test('verify product Information data', async({homepage,searchResultPage,productInfoPage})=>{
+test('@regression verify product Information/Data', async({homepage,searchResultPage,productInfoPage})=>{
     await homepage.doSerach('macbook');
     await searchResultPage.selectProduct('MacBook Pro');
     let actualProductInfoMap =  await productInfoPage.getProductInfo();
