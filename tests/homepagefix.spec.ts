@@ -6,16 +6,16 @@ test.beforeEach(async ({loginpage}) => {
 });
 
 
-test('navigate the homepage', async ({homepage}) => {
+test('@smoke home page title test', async ({homepage}) => {
     expect(await homepage.getPageTitle()).toBe('My Account');
 })
 
-test('Verify the logout link', async ({homepage}) => {
+test('@smoke logout link exist test', async ({homepage}) => {
     expect(await homepage.isLogoutLinkExist()).toBeTruthy();
 })
 
 
-test('Headers verify the homepage', async ({homepage}) => {
+test('@regression home page headers exist test', async ({homepage}) => {
     let headers = await homepage.getHomePageHeaders();
     expect(headers).toHaveLength(4);
     expect(headers).toEqual([
@@ -25,5 +25,3 @@ test('Headers verify the homepage', async ({homepage}) => {
         'Newsletter'
     ])
 })
-
-
