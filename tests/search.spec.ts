@@ -20,7 +20,7 @@ test(`@regression verify search results count - ${row.searchkey} - ${row.product
 
 //Select Product
 for(const row of productData){
-test(`@regression verify user is able to land on the product page- ${row.searchkey} - ${row.productname} `, async ({ homepage,searchResultPage,page }) => {
+test(` verify user is able to land on the product page- ${row.searchkey} - ${row.productname} `, async ({ homepage,searchResultPage,page }) => {
     await homepage.doSerach(row.searchkey);
     await searchResultPage.selectProduct(row.productname);
     expect(await page.title()).toBe(row.productname);
