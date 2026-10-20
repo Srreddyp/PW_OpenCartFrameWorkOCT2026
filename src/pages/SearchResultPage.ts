@@ -22,6 +22,7 @@ export class SearchResultPage extends BasePage {
 
     async selectProduct(productname:string): Promise<void>{
         await this.page.getByRole('link', { name: productname, exact: true }).first().click();
+        await this.page.waitForTimeout(2000);
 
     }
 

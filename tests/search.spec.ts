@@ -35,3 +35,5 @@ test('verify user is able to land on the product page Screen Details -', async (
     expect(await page.title()).toBe('MacBook Pro');
 
 })
+
+
