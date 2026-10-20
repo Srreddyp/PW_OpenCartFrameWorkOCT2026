@@ -22,7 +22,7 @@ test('@regression forgot pwd link exist test', async ({ loginpage }) => {
 
 
 //DD_1. sequence mode -- only 1 test is running with test data one by one using testData from fixture
-test('@regression login to app using wrong credentials with Data driven test', async ({ loginpage, testData }) => {
+test(' login to app using wrong credentials with Data driven test', async ({ loginpage, testData }) => {
     for (let row of testData) {
         await loginpage.doLogin(row.username, row.password);
         expect(await loginpage.verifyinvalidLoginerror()).toBeTruthy();
@@ -33,7 +33,7 @@ test('@regression login to app using wrong credentials with Data driven test', a
 //DD_2: without fixtures, parallel mode. read csv data directly and loop the test method row wise...
 let testData = CsvHelper.readCsv('src/data/loginData.csv');
 for (let row of testData) {
-    test(`@regression invalid login test with ${row.username}-${row.password} `, async ({ loginpage }) => {
+    test(` invalid login test with ${row.username}-${row.password} `, async ({ loginpage }) => {
         await loginpage.doLogin(row.username, row.password);
          expect(await loginpage.verifyinvalidLoginerror()).toBeTruthy();
     })
@@ -45,7 +45,7 @@ for (let row of testData) {
 //maintenance
 let loginTestData = ExcelHelper.readExcel('src/data/openCartTestData.xlsx','login')
 for (let row of loginTestData) {
-    test(`@regression invalid login test with excel data - ${row.username}-${row.password} `, async ({ loginpage }) => {
+    test(`invalid login test with excel data - ${row.username}-${row.password} `, async ({ loginpage }) => {
         await loginpage.doLogin(row.username, row.password);
          expect(await loginpage.verifyinvalidLoginerror()).toBeTruthy();
     })

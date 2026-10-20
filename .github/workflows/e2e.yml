@@ -432,7 +432,7 @@ jobs:
             echo "overall=❌ SOME FAILURES" >> $GITHUB_OUTPUT
           fi
 
-          REPORT_BASE="https://naveenanimation20.github.io/OpenCartWebAPIFramework/runs/${{ github.run_id }}"
+          REPORT_BASE="https://srreddyp.github.io/PW_OpenCartFrameWorkOCT2026/runs/${{ github.run_id }}"
           echo "report_url=${REPORT_BASE}" >> $GITHUB_OUTPUT
 
       - name: Download All Reports
@@ -603,8 +603,8 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "🎭 CI/CD Pipeline — ${{ steps.status.outputs.overall }} — ${{ github.ref_name }}"
-          to: naveenanimation20@gmail.com,training@naveenautomationlabs.com,nkt.agarwal3@gmail.com,kdpatel8184@gmail.com
-          from: "CI Bot <${{ secrets.EMAIL_APPUSERNAME }}>"
+          to: srr2255@gmail.com,sdet.mastan@gmail.com
+          from: "CI Bot <${{ secrets.EMAIL_USERNAME }}>"
           html_body: file://dashboard.html
 
       - name: Send Slack Notification

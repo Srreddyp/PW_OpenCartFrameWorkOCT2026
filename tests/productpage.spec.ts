@@ -15,7 +15,7 @@ test('@regression verify product images count', async({homepage,searchResultPage
 })
 
 
-test('@regression verify product Information/Data', async({homepage,searchResultPage,productInfoPage})=>{
+test(' verify product Information/Data', async({homepage,searchResultPage,productInfoPage})=>{
     await homepage.doSerach('macbook');
     await searchResultPage.selectProduct('MacBook Pro');
     let actualProductInfoMap =  await productInfoPage.getProductInfo();
