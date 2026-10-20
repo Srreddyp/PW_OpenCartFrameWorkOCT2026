@@ -39,7 +39,7 @@ export class LoginPage extends BasePage {
     }
 
     async verifyinvalidLoginerror() {
-
+         await this.page.waitForTimeout(2000);
         return await this.errormsglogin.isVisible();
     }
 
