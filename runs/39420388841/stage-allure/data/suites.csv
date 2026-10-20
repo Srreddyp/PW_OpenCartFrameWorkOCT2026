@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","6525","@smoke home page title test","chromium","2026-10-20","passed","2026-10-20","","homepagefix.spec.ts","",""
+"","7691","@smoke logout link exist test","chromium","2026-10-20","passed","2026-10-20","","homepagefix.spec.ts","",""
+"","2964","@smoke login page title test","chromium","2026-10-20","passed","2026-10-20","","loginpagefix.spec.ts","",""
