@@ -13,10 +13,10 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS-24'
+        nodejs 'NodeJS-26'
         maven 'Maven-3.9'
         jdk 'JDK-17'
-        allure 'Allure'
+        allure 'allure'
     }
 
     parameters {
